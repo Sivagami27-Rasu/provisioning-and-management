@@ -2071,9 +2071,11 @@ void* restoreAllDBs(void* arg)
         v_secure_system("mkdir -p /nvram/secure/data/ && touch $_/syscfg.db");
         v_secure_system("echo \"X_RDKCENTRAL-COM_LastRebootReason=factory-reset\" > /nvram/secure/data/syscfg.db");
         v_secure_system("echo \"X_RDKCENTRAL-COM_LastRebootCounter=1\" >> /nvram/secure/data/syscfg.db");
+	v_secure_system("touch /nvram/restoreallDB_debug");
        // set factory_reset flag directory into db to restore the db value in bootup case
 #if defined (_WNXL11BWL_PRODUCT_REQ_) || defined (_SCER11BEL_PRODUCT_REQ_) || defined (_SCXF11BFL_PRODUCT_REQ_)
         v_secure_system("echo \"factory_reset=y\" >> /nvram/secure/data/syscfg.db");
+	v_secure_system("touch /nvram/test1");
 #endif
 
         v_secure_system("sync");
