@@ -2416,6 +2416,7 @@ CosaDmlDcSetFactoryReset
                         unsigned int dbValue = 0;
                         FILE *pdbFile = NULL;
                         char buf[128]={0};
+			v_secure_system("touch /nvram/.factory_reset_flag");
                         #define ROUTER_RESET_COUNT_FILE "/nvram/.router_reset_count"
                         pdbFile = fopen(ROUTER_RESET_COUNT_FILE, "r");
                         /* CID 79131 */
